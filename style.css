@@ -1,0 +1,148 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+background-color: #444;
+}
+
+#sidebar {
+	grid-area: sidebar;
+	overflow-y: scroll;
+}
+
+#content {
+	grid-area: content;
+}
+
+.header {
+	grid-area : header;
+/*	font-family: Helvetica, sans-serif;*/
+    font-family: "Lucida Console", Courier, monospace;
+    text-align: center;
+    padding: 2px;
+  
+}
+
+.footer{
+  grid-area: footer;
+}
+
+.sideBarItem{
+	max-height: 25px;
+	max-width: 25px;
+	padding:5px;
+}
+
+.sideBarItem img{
+	max-height: 25px;
+	max-Width:25px;
+}
+
+.colourPalette{
+	grid-area: colourP;
+	display:flex;
+	flex-direction:grid;
+	flex-flow:wrap;
+    padding-left: 75px;
+    background-color: #444;
+    }
+
+.options{
+	grid-area: options;
+	padding: 2px;
+}
+
+.colourSwatches{
+	box-sizing: border-box;
+	width: 37px;
+	height: 37px;
+	max-height: 40px;
+	max-width: 40px;
+	margin: 1px;
+}
+
+
+	.wrapper {
+		display: grid;
+		height: 100%;
+		grid-template-columns: 75px 230px  minmax(500px, 1fr);
+		grid-template-rows: 35px minmax(500px, 1fr) 160px;
+		grid-template-areas:
+               "header header header"
+				"sidebar content content"
+                "colourP colourP options";
+		background-color: #fff;
+		color: #444;
+	}
+.box {
+  background-color: #444;
+  color: #fff;
+  font-size: 150%;
+  
+}
+
+.header {
+  background-color: #444;
+    
+    
+    
+    
+}
+    
+/*     Dropdown Button */
+.dropbtn {
+  text-align: left;
+  grid-area : header;
+  font-family: "Lucida Console", Courier, monospace;
+  background-color: #444;
+  color: white;
+  padding: 2px;
+  font-size: 18px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 90px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 6px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  background-color: #444;
+}
+
+#clearButton {
+    border: none;
+    background-color: whitesmoke;
+  }
+#saveImageButton {
+    border: none;
+    background-color: whitesmoke;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #444;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: black;}
+  
+}
