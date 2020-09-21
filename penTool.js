@@ -22,6 +22,8 @@ function penTool(){
 	this.draw = function(){
             updatePixels();
             if(mousePressedOnCanvas(canvas) && mouseIsPressed) {
+                //changes cursor to crosshair
+                cursor('crosshair');
                 if(!editMode){
                     currentShape.push({
                         x: mouseX,
@@ -39,17 +41,21 @@ function penTool(){
                 }
             }
         
-            beginShape(LINES);
+            beginShape();
             for(var i = 0; i < currentShape.length; i++){
+                 var sizeW = penToolSlider.value();
+                strokeWeight(sizeW);
                         noFill();
                         vertex(currentShape[i].x,
                         currentShape[i].y);
+                
                         if(editMode){
+                        strokeWeight(1);
                         fill('blue');
                         ellipse(currentShape[i].x,
                                 currentShape[i].y,
                                 5);
-                        
+                        noFill();
                         }
             }
             endShape();
@@ -61,17 +67,19 @@ function penTool(){
      
 		//clear options
 		select(".options").html("");
+        cursor('auto');
+        strokeWeight(1);
+        fill(0);
+        
 	};
     
 
     this.populateOptions = function() {
-  
-//    editButton = createButton('Edit Shape');
-//    editButton.parent("#options");
-        select(".options").html(
-			"<button id='editButton'>edit button</button>",
-        "<button id='finishButton'>Finish button</button>");
+
         
+        select(".options").html(
+			"<button id='editButton'>Edit button</button> <button id='finishButton'>Finish button</button> <div class='label'> Thickness </div>");
+       
         select("#editButton").mouseClicked(function() {
         var button = select("#" + this.elt.id);
             if(editMode){
@@ -84,17 +92,19 @@ function penTool(){
             }
     })
         
-//        select(".finishButton").mouseClicked(function(){
-//                var button = select("#" + this.elt.class);
-//                editMode = false;
-//                loadPixels();
-//                currentShape = [];})
-////				button.html('Make Vertical');
-//            
+        select("#finishButton").mouseClicked(function(){
+                var button = select("#" + this.elt.class);
+                editMode = false;
+                draw();
+                loadPixels();
+                currentShape = [];})            
     
+        penToolSlider = createSlider(1,20,1);
+        penToolSlider.parent("#options");
                                              
 }
-   updatePixels();
+    fill(0);
+//   updatePixels();
 //console.log(this.mousePressedOnCanvas())    
 
 }

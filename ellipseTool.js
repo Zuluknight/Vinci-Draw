@@ -14,6 +14,8 @@ function ellipseTool(){
         size = dist(startMouseX,startMouseY,mouseX,mouseY)*0.6;
         //if the mouse is pressed
 		if(mouseIsPressed){
+            //changes cursor to crosshair
+            cursor('crosshair');
             //check if mouseX and Y are -1. Then set them to current mouseX and Y.
 			if(startMouseX == -1){
 				startMouseX = mouseX;
@@ -48,11 +50,12 @@ function ellipseTool(){
 		//clear options
 		select(".options").html("");
         strokeWeight(1);
+        cursor('auto')
 	};
     
     this.populateOptions = function() {
         
-        select(".options").html("<div>Thickness</div>");
+        select(".options").html("<div class='label'> Size </div>");
         ellipseToolSlider = createSlider(1,20,1);
         ellipseToolSlider.parent("#options");
 

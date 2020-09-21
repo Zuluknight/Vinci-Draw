@@ -20,7 +20,8 @@ function vertexTool(){
         sizeOfY = dist()
         //if the mouse is pressed
 		if(mouseIsPressed){
-            
+            //changes cursor to crosshair
+                cursor('crosshair');
             //check if mouseX and Y are -1. Then set them to current mouseX and Y.
 			if(startMouseX == -1){
 				startMouseX = mouseX;
@@ -63,10 +64,11 @@ function vertexTool(){
 		//clear options
 		select(".options").html("");
         strokeWeight(1);
+        cursor('auto');
 	};
     
     this.populateOptions = function() {
-
+    select(".options").html("<div class='label'> Thickness </div>");
     brushToolSlider = createSlider(1,20,1);
     brushToolSlider.parent("#options");
 

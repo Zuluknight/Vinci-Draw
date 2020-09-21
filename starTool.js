@@ -15,18 +15,22 @@ function starTool(){
        var starSize = (starToolSlider.value()*5);
         //if the mouse is pressed
 		if(mouseIsPressed){
+            //changes cursor to crosshair
+            cursor('crosshair');
             var starX = mouseX - starSize/2;
             var starY = mouseY - starSize/2;
-            image(star,mouseX, mouseY, starSize, starSize);
+            image(star,mouseX - starSize/2, mouseY - starSize/2, starSize, starSize);
             } 
         }
 	
 	this.unselectTool = function() {
 		//clear options
 		select(".options").html("");
+        cursor('auto');
 	    };
     
     this.populateOptions = function() {
+        select(".options").html("<div class='label'> Size </div>");
         starToolSlider = createSlider(5,20,5);
         starToolSlider.parent("#options");
         }

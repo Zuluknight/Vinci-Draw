@@ -148,7 +148,20 @@ background-color: #444;
     background-color: whitesmoke;
 }
 
+.button {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
+.label {
+    font-size: 18px;
+}
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #444;}

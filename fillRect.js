@@ -20,6 +20,8 @@ function fillRectTool(){
         sizeOfY = dist()
         //if the mouse is pressed
 		if(mouseIsPressed){
+            //changes cursor to crosshair
+            cursor('crosshair');
             //check if mouseX and Y are -1. Then set them to current mouseX and Y.
 			if(startMouseX == -1){
 				startMouseX = mouseX;
@@ -52,6 +54,7 @@ function fillRectTool(){
 			drawing = false;
 			startMouseX = -1;
 			startMouseY = -1;
+            cursor('auto');
 		}
 	};
 

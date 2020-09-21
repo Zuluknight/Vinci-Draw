@@ -14,6 +14,8 @@ function FreehandTool(){
        
 		//if the mouse is pressed
 		if(mouseIsPressed){
+            //changes cursor to crosshair
+            cursor('crosshair');
 			//check if they previousX and Y are -1. set them to the current
 			//mouse X and Y if they are.
 			if (previousMouseX == -1){
@@ -34,6 +36,7 @@ function FreehandTool(){
 		else{
 			previousMouseX = -1;
 			previousMouseY = -1;
+            cursor('auto');
 		}
 	};
 }

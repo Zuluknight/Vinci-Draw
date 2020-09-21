@@ -10,8 +10,6 @@ function fillEllipseTool(){
     var size;
     var sizeX; 
 
-    
-   
 	this.draw = function(){
 
         size = dist(startMouseX,startMouseY,mouseX,mouseY)*0.6;
@@ -19,6 +17,8 @@ function fillEllipseTool(){
         sizeY = startMouseY+mouseY;
         //if the mouse is pressed
 		if(mouseIsPressed){
+            //changes cursor to crosshair
+            cursor('crosshair');
             //check if mouseX and Y are -1. Then set them to current mouseX and Y.
 			if(startMouseX == -1){
 				startMouseX = mouseX;
@@ -29,11 +29,8 @@ function fillEllipseTool(){
 
             //if startMouseX != -1. Then draw line from startMouseX and Y position to new mouseX and Y.
 			else{
-            
 				updatePixels();
 				ellipse(startMouseX , startMouseY, size);
-               
-
 			}
 
 		}
@@ -43,6 +40,7 @@ function fillEllipseTool(){
 			drawing = false;
 			startMouseX = -1;
 			startMouseY = -1;
+            cursor('auto');
 		}
 	};
 
